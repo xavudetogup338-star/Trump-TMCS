@@ -172,17 +172,14 @@ function initCopyButtons() {
 
 function initTransferModal() {
     const modal = document.getElementById('transfer-modal');
-    const openBtn = document.getElementById('transfer-purchase-btn');
     const closeBtn = document.getElementById('transfer-modal-close');
     const copyBtn = document.getElementById('copy-transfer-address');
     const addressEl = document.getElementById('transfer-address');
 
-    if (!modal || !openBtn || !closeBtn || !copyBtn || !addressEl) return;
+    if (!modal || !closeBtn || !copyBtn || !addressEl) return;
 
-    const openModal = () => modal.classList.remove('hidden');
     const closeModal = () => modal.classList.add('hidden');
 
-    openBtn.addEventListener('click', openModal);
     closeBtn.addEventListener('click', closeModal);
     modal.addEventListener('click', (e) => {
         if (e.target === modal) {
@@ -192,6 +189,8 @@ function initTransferModal() {
 
     copyBtn.addEventListener('click', () => {
         const address = addressEl.textContent.trim();
+        if (!address) return;
+        
         navigator.clipboard.writeText(address).then(() => {
             const originalIcon = copyBtn.innerHTML;
             copyBtn.innerHTML = '<i data-feather="check"></i>';

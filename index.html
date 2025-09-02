@@ -1,8 +1,26 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TMCS</title>
+    <!-- Google tag (gtag.js) -->
+    <script>
+      /* @tweakable Google Analytics ID */
+      const GA_ID = 'G-2W8WFY8R78';
+
+      if (GA_ID) {
+        const gtagScript = document.createElement('script');
+        gtagScript.async = true;
+        gtagScript.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`;
+        document.head.appendChild(gtagScript);
+
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', GA_ID);
+      }
+    </script>
     <link rel="icon" href="https://2nposfhudwcvh9scg2f7.c.websim.com/5cfe077b-add3-44b1-8a8c-960c883d036b.png?v=187" type="image/png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -50,8 +68,6 @@
                     </ul>
                 </div>
 
-                <button class="btn btn-secondary" data-translate="connect_wallet" id="connect-wallet">Connect Wallet</button>
-
                 <button class="mobile-menu-toggle" aria-label="Toggle menu">
                     <i data-feather="menu" class="icon-menu"></i>
                     <i data-feather="x" class="icon-close"></i>
@@ -76,7 +92,7 @@
                     <h1 data-translate="hero_title">TMCS-<br>President Trump's<br>media unique token</h1>
                     <img src="tmgcs_logo-1 (1).webp" alt="TMCS Logo" class="hero-subtitle-logo">
                     <div class="hero-actions">
-                        <a href="#presale" class="btn btn-primary" data-translate="buy_truthx">BUY TMCS</a>
+                        <button id="hero-buy-btn" class="btn btn-primary" data-translate="buy_truthx">BUY TMCS</button>
                     </div>
                     <div class="countdown-container">
                         <div class="countdown" id="countdown">
@@ -144,11 +160,9 @@
                         </div>
                         <small class="slippage-info" data-translate="presale_slippage">1 USDT/USDC = 12500.16 TMCS &nbsp;&nbsp;|&nbsp;&nbsp; 1 SOL = 2627343.65 TMCS</small>
                         <div class="presale-buttons-wrapper">
-                            <button class="btn btn-primary btn-full" data-translate="buy_truthx" id="buy-truthx-btn" style="display: none;">BUY TMCS</button>
-                            <button class="btn btn-secondary btn-full" data-translate="connect_wallet" id="connect-wallet-2">CONNECT WALLET</button>
-                            <button class="btn btn-secondary btn-full" data-translate="transfer_purchase" id="transfer-purchase-btn">Transfer Purchase</button>
+                            <button class="btn btn-primary btn-full" data-translate="buy_truthx" id="presale-buy-btn">BUY TMCS</button>
                         </div>
-                        <p class="congestion-notice" data-translate="presale_congestion_notice">Presale traffic is high. If you encounter wallet node congestion, you can use the 'Transfer Purchase' button for a direct wallet transfer. TMCS will be credited within 10 minutes.</p>
+                        <p class="congestion-notice" data-translate="presale_congestion_notice">Please click the button above and copy your wallet address to transfer your TMCS. TMCS will arrive within 10 minutes.</p>
                     </div>
                 </div>
             </div>
@@ -606,7 +620,7 @@
             <div class="transfer-modal__content">
                 <p data-translate="transfer_modal_text">You can transfer funds by copying the wallet address below. We accept SOL, USDT, USDC. We will transfer TMCS to your wallet within 5 minutes.</p>
                 <div class="transfer-address-group">
-                    <strong class="monospace" id="transfer-address">C2n9YYisQ7CrVCzeUVAv8TtVx8pcdf5LywFAwJWkgER4</strong>
+                    <strong class="monospace" id="transfer-address"></strong>
                     <button class="copy-btn" id="copy-transfer-address" aria-label="Copy transfer address" title="Copy address">
                         <i data-feather="copy"></i>
                     </button>

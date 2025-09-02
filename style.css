@@ -480,11 +480,14 @@ body.menu-open {
 }
 
 .congestion-notice {
-    font-size: 0.8rem;
+    /* @tweakable The size of the text below the presale button */
+    font-size: 1rem;
+    /* @tweakable The boldness of the text below the presale button */
+    font-weight: 700;
     color: var(--footer-gold-accent, #D7B25A);
     text-align: center;
-    margin-top: 1rem;
-    padding: 8px;
+    margin-top: 1.5rem;
+    padding: 12px;
     background-color: rgba(215, 178, 90, 0.1);
     border: 1px solid rgba(215, 178, 90, 0.2);
     border-radius: 8px;
