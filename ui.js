@@ -1,10 +1,19 @@
 import { translations } from './translations.js';
 
+// This will be set from main.js
+export let tweakableValues = {};
+
 function translatePage(lang) {
     document.querySelectorAll('[data-translate]').forEach(el => {
         const key = el.getAttribute('data-translate');
         if (translations[lang] && translations[lang][key]) {
-            const translation = translations[lang][key];
+            let translation = translations[lang][key];
+            
+            // Handle placeholders like {minutes}
+            if (key === 'presale_congestion_notice') {
+                translation = translation.replace('{minutes}', tweakableValues.TMCS_ARRIVAL_MINUTES);
+            }
+
             if (el.hasAttribute('data-translate-placeholder')) {
                 el.placeholder = translation;
             } else if (key === 'presale_tokens_sold') {
