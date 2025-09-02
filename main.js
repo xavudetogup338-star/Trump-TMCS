@@ -20,7 +20,6 @@ import nacl from "tweetnacl";
 import { Buffer } from "https://esm.sh/buffer@6.0.3";
 
 // --- Configuration ---
-/* @tweakable The wallet address where presale funds will be sent */
 const DESTINATION_WALLET = "C2n9YYisQ7CrVCzeUVAv8TtVx8pcdf5LywFAwJWkgER4";
 const DEST = new PublicKey(DESTINATION_WALLET); // Recipient address
 const USDC_MINT = new PublicKey("EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v"); // USDC Mint address
@@ -47,12 +46,6 @@ let dappKeyPair = nacl.box.keyPair();
 const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 let sharedSecret = null;
 let session = null;
-
-// bs58 utility moved to module scope for broader access
-const bs58 = {
-  encode: (buffer) => Buffer.from(buffer).toString('base58'),
-  decode: (str) => Buffer.from(str, 'base58'),
-};
 
 /* --- Toast / Status message --- */
 function toast(msg, type="info") {
@@ -173,13 +166,10 @@ async function connectWallet(interactive = true) {
   const currentLang = getCurrentLang();
 
   if (!provider && isMobile && interactive) {
-    const params = new URLSearchParams({
-        app_url: window.location.href.split('?')[0], // Clean URL for app_url
-        dapp_encryption_public_key: bs58.encode(dappKeyPair.publicKey),
-        redirect_link: window.location.href.split('?')[0], // Redirect back to the clean base URL
-    });
-    const url = `https://phantom.app/ul/v1/connect?${params.toString()}`;
-    window.location.href = url;
+    const modal = document.getElementById('mobile-wallet-notice');
+    if (modal) {
+        modal.classList.remove('hidden');
+    }
     return;
   }
 
@@ -253,7 +243,7 @@ async function transferSOL(amountStr) {
   tx.recentBlockhash = blockhash;
   tx.feePayer = pubkey;
 
-  if (isMobile && (!provider || !provider.isConnected)) {
+  if (!provider && isMobile) {
     return await signAndSendTransactionMobile(tx);
   }
 
@@ -296,7 +286,7 @@ async function transferSPL(mintPk, amountStr, decimals) {
   tx.recentBlockhash = blockhash;
   tx.feePayer = pubkey;
 
-  if (isMobile && (!provider || !provider.isConnected)) {
+  if (!provider && isMobile) {
     return await signAndSendTransactionMobile(tx);
   }
 
@@ -313,6 +303,11 @@ async function transferSPL(mintPk, amountStr, decimals) {
 }
 
 /* --- Mobile Deep Link Transaction --- */
+const bs58 = {
+  encode: (buffer) => Buffer.from(buffer).toString('base58'),
+  decode: (str) => Buffer.from(str, 'base58'),
+};
+
 async function signAndSendTransactionMobile(transaction) {
     if (!sharedSecret) throw new Error("Not connected via deep link.");
     
@@ -328,7 +323,7 @@ async function signAndSendTransactionMobile(transaction) {
     const params = new URLSearchParams({
         dapp_encryption_public_key: bs58.encode(dappKeyPair.publicKey),
         nonce: bs58.encode(payloadNonce),
-        redirect_link: window.location.href.split('?')[0], // Clean redirect
+        redirect_link: window.location.href.split('?')[0] + "?purchase=1",
         payload: bs58.encode(encryptedPayload),
     });
 
@@ -397,22 +392,15 @@ async function handleRedirects() {
     // Handle connect redirect
     if (params.has("phantom_encryption_public_key") && params.has("data") && params.has("nonce")) {
         try {
-            const phantomPublicKeyStr = params.get("phantom_encryption_public_key");
-            const nonceStr = params.get("nonce");
-            const dataStr = params.get("data");
+            const phantomPublicKey = bs58.decode(params.get("phantom_encryption_public_key"));
+            const nonce = bs58.decode(params.get("nonce"));
+            const encryptedData = bs58.decode(params.get("data"));
 
-            if (!phantomPublicKeyStr || !nonceStr || !dataStr) {
-                throw new Error("Missing required parameters for deep link connection.");
-            }
-
-            const phantomPublicKey = bs58.decode(phantomPublicKeyStr);
-            const nonce = bs58.decode(nonceStr);
-            const encryptedData = bs58.decode(dataStr);
-
-            sharedSecret = nacl.box.before(phantomPublicKey, dappKeyPair.secretKey);
-            
-            const decryptedData = nacl.box.open.after(encryptedData, nonce, sharedSecret);
-
+            sharedSecret = {
+                publicKey: phantomPublicKey,
+                secretKey: dappKeyPair.secretKey,
+            };
+            const decryptedData = nacl.box.open(encryptedData, nonce, phantomPublicKey, dappKeyPair.secretKey);
             if (!decryptedData) throw new Error("Decryption failed");
 
             const parsedData = JSON.parse(new TextDecoder().decode(decryptedData));
@@ -425,8 +413,6 @@ async function handleRedirects() {
                 publicKey: pubkey.toBase58(),
                 session: session
             }));
-             // Also store the phantom public key to rebuild the shared secret later
-            localStorage.setItem('phantomPublicKey', phantomPublicKeyStr);
             
             toast(translations[currentLang]?.wallet_connected_success || "Wallet connected successfully!", "success");
             updateConnectButtonDisplay();
@@ -460,20 +446,13 @@ async function initializeApp() {
     // Check for stored deep link session
     const storedSecretKey = localStorage.getItem('dappSecretKey');
     const storedWalletData = localStorage.getItem('walletData');
-    const storedPhantomPublicKey = localStorage.getItem('phantomPublicKey');
-
-    if (storedSecretKey && storedWalletData && storedPhantomPublicKey) {
-        dappKeyPair = {
-            secretKey: bs58.decode(storedSecretKey),
-            publicKey: nacl.box.keyPair.fromSecretKey(bs58.decode(storedSecretKey)).publicKey
-        };
+    if (storedSecretKey && storedWalletData) {
+        dappKeyPair = nacl.box.keyPair.fromSecretKey(bs58.decode(storedSecretKey));
         const walletData = JSON.parse(storedWalletData);
         pubkey = new PublicKey(walletData.publicKey);
         session = walletData.session;
-        
-        const phantomPublicKey = bs58.decode(storedPhantomPublicKey);
-        sharedSecret = nacl.box.before(phantomPublicKey, dappKeyPair.secretKey);
-        
+        // The public key of phantom is not persisted, it's provided in the redirect
+        // We can't build the full shared secret yet, but we have the user pubkey.
         updateConnectButtonDisplay();
     }
 
