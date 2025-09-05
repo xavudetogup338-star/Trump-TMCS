@@ -24,22 +24,6 @@ function initializeApp() {
     if (transferAddressEl) {
         transferAddressEl.textContent = DESTINATION_WALLET;
     }
-
-    // Set up modal trigger buttons
-    const heroBuyBtn = document.getElementById('hero-buy-btn');
-    const presaleBuyBtn = document.getElementById('presale-buy-btn');
-    const modal = document.getElementById('transfer-modal');
-
-    const openModal = () => {
-        if (modal) modal.classList.remove('hidden');
-    };
-
-    if (heroBuyBtn) {
-        heroBuyBtn.addEventListener('click', openModal);
-    }
-    if (presaleBuyBtn) {
-        presaleBuyBtn.addEventListener('click', openModal);
-    }
 }
 
 document.addEventListener("DOMContentLoaded", initializeApp);

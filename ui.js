@@ -14,7 +14,7 @@ function translatePage(lang) {
                 translation = translation.replace('{minutes}', tweakableValues.TMCS_ARRIVAL_MINUTES);
             }
 
-            if (el.hasAttribute('data-translate-placeholder')) {
+            if (el.tagName === 'INPUT' && el.hasAttribute('placeholder')) {
                 el.placeholder = translation;
             } else if (key === 'presale_tokens_sold') {
                 const soldTokensEl = document.getElementById('sold-tokens');
@@ -68,24 +68,6 @@ function initHeaderScroll() {
         } else {
             header.classList.remove('scrolled');
         }
-    });
-}
-
-function initMobileMenu() {
-    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-    const body = document.querySelector('body');
-    const mobileNavLinks = document.querySelectorAll('.mobile-nav-overlay a');
-    
-    if (!mobileMenuToggle || !body) return;
-
-    mobileMenuToggle.addEventListener('click', () => {
-        body.classList.toggle('menu-open');
-    });
-
-    mobileNavLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            body.classList.remove('menu-open');
-        });
     });
 }
 
@@ -180,21 +162,12 @@ function initCopyButtons() {
 }
 
 function initTransferModal() {
-    const modal = document.getElementById('transfer-modal');
-    const closeBtn = document.getElementById('transfer-modal-close');
+    // This modal is now handled by the global modal handler in script.js
+    // We only need the copy button logic here.
     const copyBtn = document.getElementById('copy-transfer-address');
     const addressEl = document.getElementById('transfer-address');
 
-    if (!modal || !closeBtn || !copyBtn || !addressEl) return;
-
-    const closeModal = () => modal.classList.add('hidden');
-
-    closeBtn.addEventListener('click', closeModal);
-    modal.addEventListener('click', (e) => {
-        if (e.target === modal) {
-            closeModal();
-        }
-    });
+    if (!copyBtn || !addressEl) return;
 
     copyBtn.addEventListener('click', () => {
         const address = addressEl.textContent.trim();
@@ -218,21 +191,12 @@ function initTransferModal() {
 }
 
 function initMobileWalletNoticeModal() {
-    const modal = document.getElementById('mobile-wallet-notice');
-    if (!modal) return;
-    
-    const closeBtn = document.getElementById('mobile-wallet-notice-close');
+    // This modal is also handled by the global modal handler in script.js
+    // We only need the copy button logic here.
     const copyBtn = document.getElementById('copy-website-url');
+    if (!copyBtn) return;
+    
     const urlEl = document.getElementById('website-url-display');
-
-    const closeModal = () => modal.classList.add('hidden');
-
-    closeBtn.addEventListener('click', closeModal);
-    modal.addEventListener('click', (e) => {
-        if (e.target === modal) {
-            closeModal();
-        }
-    });
 
     copyBtn.addEventListener('click', () => {
         const urlToCopy = urlEl.textContent.trim();
@@ -307,7 +271,6 @@ export function initFooterFormInteraction() {
 
 export function initUI() {
     initHeaderScroll();
-    initMobileMenu();
     initLanguageSwitcher();
     initFaqAccordion();
     initCopyButtons();

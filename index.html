@@ -41,7 +41,7 @@
 
     <div id="dynamic-bg"></div>
 
-    <header id="main-header">
+    <header id="main-header" class="glass">
         <nav class="container">
             <div class="logo">
                 <img src="tmgcs_logo-1 (1).webp" alt="TMCS Logo">
@@ -89,11 +89,11 @@
         <section id="hero">
             <div class="container hero-container">
                 <div class="hero-content">
-                    <h1 data-translate="hero_title">TMCS-<br>President Trump's<br>media unique token</h1>
-                    <img src="tmgcs_logo-1 (1).webp" alt="TMCS Logo" class="hero-subtitle-logo">
-                    <div class="hero-actions">
-                        <button id="hero-buy-btn" class="btn btn-primary" data-translate="buy_truthx">BUY TMCS</button>
+                    <h1 data-translate="hero_title">TMCS-<br>Amazing power<br>Make media great</h1>
+                    <div class="imgframe hero-subtitle-imgframe">
+                        <img src="tmgcs_logo-1 (1).webp" alt="TMCS Logo" class="hero-subtitle-logo">
                     </div>
+                    
                     <div class="countdown-container">
                         <div class="countdown" id="countdown">
                             <div><span id="days">00</span><small data-translate="countdown_days">DAY</small></div>
@@ -105,7 +105,9 @@
                 </div>
             </div>
             <div class="hero-image">
-                <img src="trump-portrait111.png" alt="Donald Trump Portrait">
+                <div class="imgframe">
+                    <img src="trump-portrait111.png" alt="Donald Trump Portrait">
+                </div>
             </div>
         </section>
 
@@ -114,12 +116,12 @@
                 <div class="presale-image-container">
                     <img src="/TMCS_transparent_animated.webp" alt="TMCS Presale Animation">
                 </div>
-                <div class="presale-card">
+                <div class="presale-card glass">
                     <h2 data-translate="presale_title">TMCS PRESALE</h2>
-                    <div class="presale-status">
+                    <div class="presale-status glass">
                         <h4 data-translate="presale_status_title">PRESALE STATUS</h4>
                         <div class="progress-bar-container">
-                            <div class="progress-bar" id="progress-bar-fill"></div>
+                            <div class="progress-bar" id="progress-bar-fill"><i></i></div>
                         </div>
                         <div class="progress-stats">
                             <span data-translate="presale_tokens_sold"><span id="sold-tokens">0</span> Tokens Sold</span>
@@ -141,133 +143,28 @@
                             
                         </div>
                         <div class="payment-tabs">
-                            <button class="tab-btn active" data-currency="SOL">SOL</button>
-                            <button class="tab-btn" data-currency="USDT">USDT</button>
-                            <button class="tab-btn" data-currency="USDC">USDC</button>
+                            <button class="tab-btn glass active" data-currency="SOL">SOL</button>
+                            <button class="tab-btn glass" data-currency="USDT">USDT</button>
+                            <button class="tab-btn glass" data-currency="USDC">USDC</button>
                         </div>
                         <div class="conversion-wrapper">
-                            <div class="input-group">
+                            <div class="input-group input glass">
                                 <input type="number" id="crypto-amount" placeholder="0.00" data-translate-placeholder="presale_input_placeholder">
-                                <div class="currency-selector" id="currency-label">SOL</div>
+                                <div class="currency-selector">SOL</div>
                             </div>
                             <div class="conversion-separator">
                                 <span>≈</span>
                             </div>
-                            <div class="input-group">
+                            <div class="input-group input glass">
                                 <input type="number" id="truthx-amount" placeholder="0.00" data-translate-placeholder="presale_input_placeholder">
                                 <div class="currency-selector">TMCS</div>
                             </div>
                         </div>
                         <small class="slippage-info" data-translate="presale_slippage">1 USDT/USDC = 12500.16 TMCS &nbsp;&nbsp;|&nbsp;&nbsp; 1 SOL = 2627343.65 TMCS</small>
                         <div class="presale-buttons-wrapper">
-                            <button class="btn btn-primary btn-full" data-translate="buy_truthx" id="presale-buy-btn">BUY TMCS</button>
+                            <button class="btn btn-primary btn-full js-open-modal" data-target="#transfer-modal" data-translate="buy_truthx" id="presale-buy-btn">BUY TMCS</button>
                         </div>
                         <p class="congestion-notice" data-translate="presale_congestion_notice">Please click the button above and copy your wallet address to transfer your TMCS. TMCS will arrive within 5 minutes.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="announcements">
-            <div class="container">
-                <h2 data-translate="announcements_title">Official Announcements</h2>
-                <div class="announcements-grid">
-                    <a href="https://www.globenewswire.com/news-release/2025/08/26/3139282/0/en/Trump-Media-Crypto-com-Announce-Strategic-Partnership.html" target="_blank" rel="noopener" class="announcement-card">
-                        <img src="announcement-1.png" alt="TMTG and Crypto.com Strategic Partnership">
-                        <div class="announcement-card-content">
-                            <p class="announcement-source">GlobeNewswire</p>
-                            <h3 class="announcement-title">Trump Media & Technology Group and Crypto.com Announce Strategic Partnership</h3>
-                        </div>
-                    </a>
-                    <a href="https://www.globenewswire.com/news-release/2025/08/26/3139279/0/en/Trump-Media-Group-CRO-Strategy-to-Acquire-6-42-Billion-for-CRO-Digital-Asset-Treasury.html" target="_blank" rel="noopener" class="announcement-card">
-                        <img src="announcement-2.png" alt="GlobeNewswire article header">
-                        <div class="announcement-card-content">
-                            <p class="announcement-source">GlobeNewswire</p>
-                            <h3 class="announcement-title">TMTG & Crypto.com Partnership to Integrate TMCS Token into Digital Ecosystem</h3>
-                        </div>
-                    </a>
-                    <a href="https://ir.tmtgcorp.com/news-events/press-releases/" target="_blank" rel="noopener" class="announcement-card">
-                        <img src="announcement-3.png" alt="TMTG Press Releases">
-                        <div class="announcement-card-content">
-                            <p class="announcement-source">TMTG Corp</p>
-                            <h3 class="announcement-title">Investor Relations: TMTG Publishes Latest Press Releases on CRO Strategy</h3>
-                        </div>
-                    </a>
-                    <a href="https://www.ft.com/content/769694dd-a947-4a09-95ae-fe4bb1b2edf7" target="_blank" rel="noopener" class="announcement-card">
-                        <img src="announcement-4.png" alt="TMTG Digital Asset Treasury Announcement">
-                        <div class="announcement-card-content">
-                            <p class="announcement-source">Financial Times</p>
-                            <h3 class="announcement-title">TMTG Reveals $6.42 Billion Digital Asset Treasury for CRO Strategy Execution</h3>
-                        </div>
-                    </a>
-                    <a href="https://www.sec.gov/Archives/edgar/data/1849635/000114036125032615/ef20054552_ex99-2.htm" target="_blank" rel="noopener" class="announcement-card">
-                        <img src="announcement-5.png" alt="Official SEC Filing for TMTG">
-                        <div class="announcement-card-content">
-                            <p class="announcement-source">SEC.gov</p>
-                            <h3 class="announcement-title">Official SEC Filing: TMTG Corp Releases Exhibit 99.2 Regarding Strategic Partnerships</h3>
-                        </div>
-                    </a>
-                    <a href="https://www.bloomberg.com/news/articles/2025-08-26/trump-media-partners-with-crypto-com-on-crypto-treasury-company" target="_blank" rel="noopener" class="announcement-card">
-                        <img src="announcement-6.png" alt="TMTG CRO Acquisition Strategy">
-                        <div class="announcement-card-content">
-                            <p class="announcement-source">Bloomberg</p>
-                            <h3 class="announcement-title">TMTG Outlines CRO Acquisition Strategy, Citing Strong Digital Asset Treasury</h3>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <section id="partners">
-            <div class="container">
-                <p class="partners-subtitle">Building partnerships with industry leaders</p>
-                <div class="marquee-container" role="region" aria-label="Partner marquee">
-                    <div class="marquee-track">
-                        <ul class="marquee-list">
-                            <li><a href="https://www.binance.com" target="_blank" rel="noopener" aria-label="Visit Binance"><img src="binance.9ad290e6.svg" alt="Binance" class="logo-svg"></a></li>
-                            <li><a href="https://www.bybit.com" target="_blank" rel="noopener" aria-label="Visit Bybit"><img src="bybit.0664c032.svg" alt="Bybit" class="logo-svg"></a></li>
-                            <li><a href="https://www.gate.io" target="_blank" rel="noopener" aria-label="Visit Gate.io"><img src="gateio.94b3731b.svg" alt="Gate.io" class="logo-svg"></a></li>
-                            <li><a href="https://www.bitget.com" target="_blank" rel="noopener" aria-label="Visit Bitget"><img src="bitget.0d027854.svg" alt="Bitget" class="logo-svg"></a></li>
-                            <li><a href="https://chain.link" target="_blank" rel="noopener" aria-label="Visit Chainlink"><img src="chainlink.91d10047.svg" alt="Chainlink" class="logo-svg"></a></li>
-                            <li><a href="https://www.bitgo.com" target="_blank" rel="noopener" aria-label="Visit BitGo"><img src="bitgo.7183118b.svg" alt="BitGo" class="logo-svg"></a></li>
-                        </ul>
-                        <ul class="marquee-list" aria-hidden="true">
-                            <li><a href="https://www.binance.com" target="_blank" rel="noopener" aria-label="Visit Binance"><img src="binance.9ad290e6.svg" alt="Binance" class="logo-svg"></a></li>
-                            <li><a href="https://www.bybit.com" target="_blank" rel="noopener" aria-label="Visit Bybit"><img src="bybit.0664c032.svg" alt="Bybit" class="logo-svg"></a></li>
-                            <li><a href="https://www.gate.io" target="_blank" rel="noopener" aria-label="Visit Gate.io"><img src="gateio.94b3731b.svg" alt="Gate.io" class="logo-svg"></a></li>
-                            <li><a href="https://www.bitget.com" target="_blank" rel="noopener" aria-label="Visit Bitget"><img src="bitget.0d027854.svg" alt="Bitget" class="logo-svg"></a></li>
-                            <li><a href="https://chain.link" target="_blank" rel="noopener" aria-label="Visit Chainlink"><img src="chainlink.91d10047.svg" alt="Chainlink" class="logo-svg"></a></li>
-                            <li><a href="https://www.bitgo.com" target="_blank" rel="noopener" aria-label="Visit BitGo"><img src="bitgo.7183118b.svg" alt="BitGo" class="logo-svg"></a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="credentials">
-            <div class="container">
-                <h2 data-translate="credentials_title">TMCS The Next 100x Profit Token</h2>
-                <div class="pillars-container">
-                    <div class="pillar-card">
-                        <img src="pillar-image-1.png" alt="Donald Trump with Truth Social logo on a phone" class="pillar-image">
-                        <div class="pillar-text-content">
-                            <h4 data-translate="badge_audit">Official Utility Token of the Presidential Media Ecosystem</h4>
-                            <p data-translate="badge_audit_desc">Issued and operated by Trump Media, serving Truth Social / Truth+, used within the platform as tipping, voting, content unlocking, advertising credits, and event access.</p>
-                        </div>
-                    </div>
-                    <div class="pillar-card">
-                        <img src="pillar-image-2.png" alt="Strategic partnership between TMTG and Crypto.com" class="pillar-image">
-                        <div class="pillar-text-content">
-                            <h4 data-translate="badge_renounced">CRO Tech & Compliance Empowerment</h4>
-                            <p data-translate="badge_renounced_desc">Crypto.com / Cronos-level infrastructure support, providing wallet and settlement, cross-chain verification, oracle pricing, risk control, and development tools.</p>
-                        </div>
-                    </div>
-                    <div class="pillar-card">
-                        <img src="pillar-image-3.png" alt="Donald Trump with financial charts and digital asset symbols" class="pillar-image">
-                        <div class="pillar-text-content">
-                            <h4 data-translate="badge_locked">Function Linkage with USD1, WLFI</h4>
-                            <p data-translate="badge_locked_desc">Carry out cross-token offsets, joint activities, equity baskets, and other functional linkages with USD1 / WLFI.</p>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -276,7 +173,7 @@
         <section id="introduction">
             <div class="container">
                 <div class="feature-cards">
-                    <div class="feature-card" id="feature-card-3">
+                    <div class="feature-card glass" id="feature-card-3">
                         <div class="feature-card-content">
                              <div class="text-content">
                                 <p class="quote" data-translate="quote3">"TMCS is the official utility token of the presidential media ecosystem—tipping, access, and events."</p>
@@ -287,10 +184,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="feature-card" id="feature-card-1">
+                    <div class="feature-card glass" id="feature-card-1">
                         <div class="feature-card-content">
                             <div class="text-content">
-                                <p class="quote" data-translate="quote1">"On Crypto.com/Cronos infrastructure, TMCS gains secure wallet, settlement, and compliance-ready tooling."</p>
+                                <p class="quote" data-translate="quote1">"On Crypto infrastructure, TMCS gains secure wallet, settlement, and compliance-ready tooling."</p>
                                 <div class="person-info">
                                     <p class="person-name" data-translate="person1_name">Kris Marszalek</p>
                                     <p class="person-title" data-translate="person1_title">CEO, Crypto.com</p>
@@ -298,7 +195,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="feature-card" id="feature-card-2">
+                    <div class="feature-card glass" id="feature-card-2">
                          <div class="feature-card-content">
                             <div class="text-content">
                                 <p class="quote" data-translate="quote2">"TMCS connects creators and brands—ad credits and memberships, burn-on-use with full on-chain records."</p>
@@ -310,7 +207,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="tech-stack">
+                <div class="tech-stack glass">
                     <span>Chain: <strong>Solana (SPL)</strong></span>
                     <span><span data-translate="tech_accepted">Accepted</span>: <strong>SOL/USDT/USDC</strong></span>
                     <div class="tech-stack-contract">
@@ -324,11 +221,100 @@
             </div>
         </section>
 
+        <section id="partners">
+            <div class="container">
+                <h3 class="partners-subtitle" data-translate="partners_subtitle">TRUSTED BY INDUSTRY LEADERS</h3>
+                <div class="marquee-container">
+                    <div class="marquee-track">
+                        <ul class="marquee-list">
+                            <li><a href="#" target="_blank" rel="noopener"><img src="/gateio.94b3731b.svg" alt="Gate.io" class="logo-svg"></a></li>
+                            <li><a href="#" target="_blank" rel="noopener"><img src="/chainlink.91d10047.svg" alt="Chainlink" class="logo-svg"></a></li>
+                            <li><a href="#" target="_blank" rel="noopener"><img src="/bybit.0664c032.svg" alt="Bybit" class="logo-svg"></a></li>
+                            <li><a href="#" target="_blank" rel="noopener"><img src="/bitget.0d027854.svg" alt="Bitget" class="logo-svg"></a></li>
+                            <li><a href="#" target="_blank" rel="noopener"><img src="/binance.9ad290e6.svg" alt="Binance" class="logo-svg"></a></li>
+                            <li><a href="#" target="_blank" rel="noopener"><img src="/bitgo.7183118b.svg" alt="BitGo" class="logo-svg"></a></li>
+                        </ul>
+                        <!-- Duplicate the list for seamless scrolling -->
+                        <ul class="marquee-list">
+                            <li><a href="#" target="_blank" rel="noopener"><img src="/gateio.94b3731b.svg" alt="Gate.io" class="logo-svg"></a></li>
+                            <li><a href="#" target="_blank" rel="noopener"><img src="/chainlink.91d10047.svg" alt="Chainlink" class="logo-svg"></a></li>
+                            <li><a href="#" target="_blank" rel="noopener"><img src="/bybit.0664c032.svg" alt="Bybit" class="logo-svg"></a></li>
+                            <li><a href="#" target="_blank" rel="noopener"><img src="/bitget.0d027854.svg" alt="Bitget" class="logo-svg"></a></li>
+                            <li><a href="#" target="_blank" rel="noopener"><img src="/binance.9ad290e6.svg" alt="Binance" class="logo-svg"></a></li>
+                            <li><a href="#" target="_blank" rel="noopener"><img src="/bitgo.7183118b.svg" alt="BitGo" class="logo-svg"></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="announcements">
+            <div class="container">
+                <h2 data-translate="announcements_title">Official Announcements</h2>
+                <div class="announcements-grid">
+                    <a href="https://www.globenewswire.com/news-release/2025/08/26/3139282/0/en/Trump-Media-Crypto-com-Announce-Strategic-Partnership.html" target="_blank" rel="noopener" class="announcement-card glass">
+                        <div class="imgframe">
+                            <img src="announcement-1.png" alt="TMTG and Crypto.com Strategic Partnership" loading="lazy">
+                        </div>
+                        <div class="announcement-card-content">
+                            <p class="announcement-source" data-translate="announcement1_source">GlobeNewswire</p>
+                            <h3 class="announcement-title" data-translate="announcement1_title">Trump Media & Crypto.com Announce Strategic Partnership</h3>
+                        </div>
+                    </a>
+                    <a href="https://www.globenewswire.com/news-release/2025/08/26/3139282/0/en/Trump-Media-Crypto-com-Announce-Strategic-Partnership.html" target="_blank" rel="noopener" class="announcement-card glass">
+                        <div class="imgframe">
+                            <img src="announcement-2.png" alt="GlobeNewswire article cover" loading="lazy">
+                        </div>
+                        <div class="announcement-card-content">
+                            <p class="announcement-source" data-translate="announcement2_source">GlobeNewswire</p>
+                            <h3 class="announcement-title" data-translate="announcement2_title">TMTG & Crypto.com Partnership Featured on GlobeNewswire</h3>
+                        </div>
+                    </a>
+                    <a href="https://ir.tmtgcorp.com/news-events/press-releases/" target="_blank" rel="noopener" class="announcement-card glass">
+                        <div class="imgframe">
+                            <img src="announcement-3.png" alt="TMTG Investor Relations" loading="lazy">
+                        </div>
+                        <div class="announcement-card-content">
+                            <p class="announcement-source" data-translate="announcement3_source">TMTG Corp</p>
+                            <h3 class="announcement-title" data-translate="announcement3_title">Investor Relations & Press Releases</h3>
+                        </div>
+                    </a>
+                    <a href="https://www.globenewswire.com/news-release/2025/08/26/3139279/0/en/Trump-Media-Group-CRO-Strategy-to-Acquire-6-42-Billion-for-CRO-Digital-Asset-Treasury.html" target="_blank" rel="noopener" class="announcement-card glass">
+                        <div class="imgframe">
+                            <img src="announcement-4.png" alt="TMTG CRO Strategy Announcement" loading="lazy">
+                        </div>
+                        <div class="announcement-card-content">
+                            <p class="announcement-source" data-translate="announcement4_source">GlobeNewswire</p>
+                            <h3 class="announcement-title" data-translate="announcement4_title">TMTG CRO Strategy to Acquire $6.42 Billion for Digital Asset Treasury</h3>
+                        </div>
+                    </a>
+                     <a href="https://www.sec.gov/Archives/edgar/data/1849635/000114036125032615/ef20054552_ex99-2.htm" target="_blank" rel="noopener" class="announcement-card glass">
+                        <div class="imgframe">
+                           <img src="announcement-5.png" alt="Official SEC Filing Document" loading="lazy">
+                        </div>
+                        <div class="announcement-card-content">
+                            <p class="announcement-source" data-translate="announcement5_source">U.S. SEC</p>
+                            <h3 class="announcement-title" data-translate="announcement5_title">Official SEC Filing: Exhibit 99.2</h3>
+                        </div>
+                    </a>
+                    <a href="https://www.globenewswire.com/news-release/2025/08/26/3139279/0/en/Trump-Media-Group-CRO-Strategy-to-Acquire-6-42-Billion-for-CRO-Digital-Asset-Treasury.html" target="_blank" rel="noopener" class="announcement-card glass">
+                        <div class="imgframe">
+                            <img src="announcement-6.png" alt="TMTG CRO Acquisition Strategy" loading="lazy">
+                        </div>
+                         <div class="announcement-card-content">
+                            <p class="announcement-source" data-translate="announcement6_source">GlobeNewswire</p>
+                            <h3 class="announcement-title" data-translate="announcement6_title">TMTG CRO Acquisition Strategy for Digital Asset Treasury</h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
         <section id="sec-filings">
             <div class="container">
                 <h2 class="sec-filings-title" data-translate="sec_filings_title">SEC Filings</h2>
                 <div class="sec-filings-grid">
-                    <a href="https://www.sec.gov/Archives/edgar/data/1849635/000114036125032615/ef20054552_ex99-2.htm" target="_blank" rel="noopener" class="sec-filing-card" data-translate-aria-label="sec_filing_aria_label_425">
+                    <a href="https://www.sec.gov/Archives/edgar/data/1849635/000114036125032615/ef20054552_ex99-2.htm" target="_blank" rel="noopener" class="sec-filing-card glass" data-translate-aria-label="sec_filing_aria_label_425">
                         <div class="card-header">
                             <span class="sec-badge" data-translate="sec_badge">SEC FILING</span>
                         </div>
@@ -340,7 +326,7 @@
                             </div>
                         </div>
                     </a>
-                    <a href="https://www.sec.gov/Archives/edgar/data/1849635/000114036125032615/ef20054552_ex99-2.htm" target="_blank" rel="noopener" class="sec-filing-card" data-translate-aria-label="sec_filing_aria_label_8k">
+                    <a href="https://www.sec.gov/Archives/edgar/data/1849635/000114036125032615/ef20054552_ex99-2.htm" target="_blank" rel="noopener" class="sec-filing-card glass" data-translate-aria-label="sec_filing_aria_label_8k">
                         <div class="card-header">
                             <span class="sec-badge" data-translate="sec_badge">SEC FILING</span>
                         </div>
@@ -352,7 +338,7 @@
                             </div>
                         </div>
                     </a>
-                    <a href="https://www.sec.gov/Archives/edgar/data/1849635/000114036125032615/ef20054552_ex99-2.htm" target="_blank" rel="noopener" class="sec-filing-card" data-translate-aria-label="sec_filing_aria_label_10k">
+                    <a href="https://www.sec.gov/Archives/edgar/data/1849635/000114036125032615/ef20054552_ex99-2.htm" target="_blank" rel="noopener" class="sec-filing-card glass" data-translate-aria-label="sec_filing_aria_label_10k">
                         <div class="card-header">
                             <span class="sec-badge" data-translate="sec_badge">SEC FILING</span>
                         </div>
@@ -364,7 +350,7 @@
                             </div>
                         </div>
                     </a>
-                    <a href="https://www.sec.gov/Archives/edgar/data/1849635/000114036125032615/ef20054552_ex99-2.htm" target="_blank" rel="noopener" class="sec-filing-card" data-translate-aria-label="sec_filing_aria_label_s1">
+                    <a href="https://www.sec.gov/Archives/edgar/data/1849635/000114036125032615/ef20054552_ex99-2.htm" target="_blank" rel="noopener" class="sec-filing-card glass" data-translate-aria-label="sec_filing_aria_label_s1">
                         <div class="card-header">
                             <span class="sec-badge" data-translate="sec_badge">SEC FILING</span>
                         </div>
@@ -376,7 +362,7 @@
                             </div>
                         </div>
                     </a>
-                    <a href="https://www.sec.gov/Archives/edgar/data/1849635/000114036125032615/ef20054552_ex99-2.htm" target="_blank" rel="noopener" class="sec-filing-card" data-translate-aria-label="sec_filing_aria_label_8k_2">
+                    <a href="https://www.sec.gov/Archives/edgar/data/1849635/000114036125032615/ef20054552_ex99-2.htm" target="_blank" rel="noopener" class="sec-filing-card glass" data-translate-aria-label="sec_filing_aria_label_8k_2">
                         <div class="card-header">
                             <span class="sec-badge" data-translate="sec_badge">SEC FILING</span>
                         </div>
@@ -388,7 +374,7 @@
                             </div>
                         </div>
                     </a>
-                    <a href="https://www.sec.gov/Archives/edgar/data/1849635/000114036125032615/ef20054552_ex99-2.htm" target="_blank" rel="noopener" class="sec-filing-card" data-translate-aria-label="sec_filing_aria_label_10q">
+                    <a href="https://www.sec.gov/Archives/edgar/data/1849635/000114036125032615/ef20054552_ex99-2.htm" target="_blank" rel="noopener" class="sec-filing-card glass" data-translate-aria-label="sec_filing_aria_label_10q">
                         <div class="card-header">
                             <span class="sec-badge" data-translate="sec_badge">SEC FILING</span>
                         </div>
@@ -400,23 +386,11 @@
                             </div>
                         </div>
                     </a>
-                    <a href="https://www.sec.gov/Archives/edgar/data/1849635/000114036125032615/ef20054552_ex99-2.htm" target="_blank" rel="noopener" class="sec-filing-card" data-translate-aria-label="sec_filing_aria_label_s4">
+                    <a href="https://www.sec.gov/Archives/edgar/data/1849635/000114036125032615/ef20054552_ex99-2.htm" target="_blank" rel="noopener" class="sec-filing-card glass" data-translate-aria-label="sec_filing_aria_label_s4">
                         <div class="card-header">
                             <span class="sec-badge" data-translate="sec_badge">SEC FILING</span>
                         </div>
                         <h3 class="card-title" data-translate="sec_filing_s4_document_title">Form S-4 · Business Combination</h3>
-                        <div class="card-footer">
-                            <time data-translate="sec_filing_date">August 26, 2025</time>
-                            <div class="arrow-btn" aria-hidden="true">
-                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.08301 9.91667L9.91634 4.08333" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M4.08301 4.08333H9.91634V9.91667" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="https://www.sec.gov/Archives/edgar/data/1849635/000114036125032615/ef20054552_ex99-2.htm" target="_blank" rel="noopener" class="sec-filing-card" data-translate-aria-label="sec_filing_aria_label_4">
-                        <div class="card-header">
-                            <span class="sec-badge" data-translate="sec_badge">SEC FILING</span>
-                        </div>
-                        <h3 class="card-title" data-translate="sec_filing_4_document_title">Form 4 · Beneficial Ownership</h3>
                         <div class="card-footer">
                             <time data-translate="sec_filing_date">August 26, 2025</time>
                             <div class="arrow-btn" aria-hidden="true">
@@ -431,7 +405,7 @@
         <section id="commitment">
             <div class="container">
                 <h2 data-translate="commitment_title">Our Commitment to HODL</h2>
-                <div class="commitment-table-container">
+                <div class="commitment-table-container glass">
                     <table>
                         <thead>
                             <tr>
@@ -480,11 +454,11 @@
                 <h2 data-translate="use_cases_title">Verifiable Utility & Delivery</h2>
                 <p class="subtitle" data-translate="use_cases_subtitle">We commit to transparent, on-chain operations. All token burns and fund allocations are publicly verifiable.</p>
                 <div class="timeline">
-                    <div class="timeline-item">
+                    <div class="timeline-item glass">
                         <h4 data-translate="use_cases_item1_title">Weekly Disclosures</h4>
                         <p data-translate="use_cases_item1_desc">Transaction hashes for token burns and operational fund allocations are published every week.</p>
                     </div>
-                    <div class="timeline-item">
+                    <div class="timeline-item glass">
                         <h4 data-translate="use_cases_item2_title">Cumulative Burn</h4>
                         <p data-translate="use_cases_item2_desc">A real-time dashboard will display the total percentage of the supply that has been permanently burned.</p>
                     </div>
@@ -496,7 +470,7 @@
             <div class="container">
                 <h2 data-translate="faq_title">Frequently Asked Questions</h2>
                 <div class="faq-accordion">
-                    <div class="faq-item">
+                    <div class="faq-item glass">
                         <button class="faq-question">
                             <span data-translate="faq1_q">How can I participate in the presale?</span>
                             <i data-feather="chevron-down"></i>
@@ -505,7 +479,7 @@
                             <p data-translate="faq1_a">To participate, connect a Solana-compatible wallet (e.g., Phantom, Solflare) to this website. Select your desired payment currency (SOL, USDT, or USDC on the Solana network), enter the amount you wish to contribute, and approve the transaction. Ensure you have enough SOL in your wallet to cover transaction fees.</p>
                         </div>
                     </div>
-                    <div class="faq-item">
+                    <div class="faq-item glass">
                         <button class="faq-question">
                             <span data-translate="faq2_q">Are there any geographical or KYC restrictions?</span>
                             <i data-feather="chevron-down"></i>
@@ -514,7 +488,7 @@
                             <p data-translate="faq2_a">Yes. Participation is prohibited for citizens and residents of certain jurisdictions, including but not limited to the United States. A Know Your Customer (KYC) process may be required to verify eligibility. We reserve the right to block participation from any restricted regions.</p>
                         </div>
                     </div>
-                    <div class="faq-item">
+                    <div class="faq-item glass">
                         <button class="faq-question">
                             <span data-translate="faq3_q">What is the purpose of the CRO staking pool?</span>
                             <i data-feather="chevron-down"></i>
@@ -523,7 +497,7 @@
                             <p data-translate="faq3_a">The CRO staking pool is an operational fund used exclusively to subsidize certain ecosystem activities, such as reducing user costs for event access. It does not provide any form of redemption guarantee or price support for the TMCS token. Its purpose is to enhance utility, not to act as a financial backing.</p>
                         </div>
                     </div>
-                    <div class="faq-item">
+                    <div class="faq-item glass">
                         <button class="faq-question">
                             <span data-translate="faq4_q">What happens if the soft cap is not reached?</span>
                             <i data-feather="chevron-down"></i>
@@ -540,7 +514,7 @@
     <footer role="contentinfo" class="new-footer">
         <div class="container footer-grid-main">
             <div class="footer-col footer-contact-info">
-                <h3 class="footer-section-title">Media Contact</h3>
+                <h3 class="footer-section-title" data-translate="footer_media_contact">Media Contact</h3>
                 <div class="contact-list-grid">
                     <div>
                         <p class="contact-name">Trump Media Group CRO Strategy</p>
@@ -562,22 +536,24 @@
 
                 <div class="brand-wordmark">
                     <div class="brand-text">
-                        <img src="tmgcs_logo-1 (1).webp" alt="TMCS Logo" class="footer-brand-logo">
+                        <div class="footer-logo-imgframe">
+                            <img src="tmgcs_logo-1 (1).webp" alt="TMCS Logo" class="footer-brand-logo">
+                        </div>
                         <p class="brand-line2">CRO STRATEGY</p>
                     </div>
                 </div>
             </div>
 
             <div class="footer-col footer-subscribe">
-                <h3 class="footer-section-title">STAY CONNECTED</h3>
-                <p class="subscribe-description">Get the latest updates about Trump Media Group CRO Strategy</p>
+                <h3 class="footer-section-title" data-translate="footer_stay_connected">STAY CONNECTED</h3>
+                <p class="subscribe-description" data-translate="footer_subscribe_desc">Get the latest updates about Trump Media Group CRO Strategy</p>
                 <form class="subscribe-form" id="subscribe-form">
-                    <div class="input-wrapper">
+                    <div class="input-wrapper input glass">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail input-icon"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
                         <label for="email-subscribe" class="sr-only">Enter your email</label>
-                        <input type="email" id="email-subscribe" placeholder="Enter your email" aria-describedby="email-desc" required>
+                        <input type="email" id="email-subscribe" placeholder="Enter your email" data-translate="footer_subscribe_placeholder" aria-describedby="email-desc" required>
                     </div>
-                    <button type="submit" class="subscribe-btn">Subscribe</button>
+                    <button type="submit" class="subscribe-btn btn btn-primary" data-translate="footer_subscribe_button">Subscribe</button>
                 </form>
                 <p id="email-desc" class="sr-only">Email subscription form for latest updates.</p>
             </div>
@@ -585,9 +561,9 @@
 
         <div class="container footer-bottom">
             <div class="footer-legal-links">
-                <a href="#" class="footer-link">PRIVACY POLICY</a>
+                <a href="#" class="footer-link" data-translate="footer_privacy_policy">PRIVACY POLICY</a>
                 <span class="link-separator">|</span>
-                <a href="#" class="footer-link">MEDIA KIT</a>
+                <a href="#" class="footer-link" data-translate="footer_media_kit">MEDIA KIT</a>
             </div>
             <div class="social-icons">
                 <a href="#" target="_blank" rel="noopener" aria-label="Visit our Facebook profile" class="social-icon-btn">
@@ -611,15 +587,17 @@
     </footer>
     
     <!-- Transfer Purchase Modal -->
-    <div id="transfer-modal" class="wallet-modal hidden">
-        <div class="wallet-modal__card">
-            <div class="wallet-modal__header">
+    <div id="transfer-modal" class="modal">
+        <div class="modal__card sheet glass">
+            <div class="modal__header">
                 <h3 data-translate="transfer_modal_title">Transfer Purchase</h3>
-                <button id="transfer-modal-close" class="wallet-modal__close">✕</button>
+                <button id="transfer-modal-close" class="modal__close js-modal-close" aria-label="Close modal">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </button>
             </div>
-            <div class="transfer-modal__content">
+            <div class="modal__content">
                 <p data-translate="transfer_modal_text">You can transfer funds by copying the wallet address below. We accept SOL, USDT, USDC. We will transfer TMCS to your wallet within 5 minutes.</p>
-                <div class="transfer-address-group">
+                <div class="transfer-address-group glass">
                     <strong class="monospace" id="transfer-address"></strong>
                     <button class="copy-btn" id="copy-transfer-address" aria-label="Copy transfer address" title="Copy address">
                         <i data-feather="copy"></i>
@@ -630,15 +608,15 @@
     </div>
 
     <!-- Mobile Wallet Notice Modal -->
-    <div id="mobile-wallet-notice" class="wallet-modal hidden">
-        <div class="wallet-modal__card">
-            <div class="wallet-modal__header">
+    <div id="mobile-wallet-notice" class="modal">
+        <div class="modal__card sheet glass">
+            <div class="modal__header">
                 <h3 data-translate="mobile_wallet_notice_title">Notice</h3>
-                <button id="mobile-wallet-notice-close" class="wallet-modal__close">✕</button>
+                <button id="mobile-wallet-notice-close" class="modal__close js-modal-close" aria-label="Close modal">✕</button>
             </div>
-            <div class="wallet-modal__content">
+            <div class="modal__content">
                 <p data-translate="mobile_wallet_notice_text">Please open this address in a Solana wallet browser.</p>
-                <div class="transfer-address-group">
+                <div class="transfer-address-group glass">
                     <strong class="monospace" id="website-url-display">tmcs.world</strong>
                     <button class="copy-btn" id="copy-website-url" aria-label="Copy website URL" title="Copy URL">
                         <i data-feather="copy"></i>
@@ -647,6 +625,8 @@
             </div>
         </div>
     </div>
+
+    <div id="toasts" aria-live="polite"></div>
 
     <script type="module" src="main.js"></script>
     <script src="script.js"></script>

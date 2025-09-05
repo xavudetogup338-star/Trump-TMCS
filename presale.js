@@ -10,16 +10,20 @@ let isCalculating = false;
 export function initPresaleConverter() {
     const cryptoAmountInput = document.getElementById('crypto-amount');
     const truthxAmountInput = document.getElementById('truthx-amount');
-    const currencyLabel = document.getElementById('currency-label');
+    const currencySelectors = document.querySelectorAll('.currency-selector');
     const paymentTabs = document.querySelectorAll('.payment-tabs .tab-btn');
 
-    if (!cryptoAmountInput || !truthxAmountInput || !currencyLabel || !paymentTabs.length) {
+    if (!cryptoAmountInput || !truthxAmountInput || !currencySelectors.length || !paymentTabs.length) {
         return; // Exit if elements are not found
     }
 
     function updateCurrency(newCurrency) {
         currentCurrency = newCurrency;
-        currencyLabel.textContent = newCurrency;
+        currencySelectors.forEach(label => {
+            if (label.textContent.toUpperCase() !== 'TMCS') {
+                label.textContent = newCurrency;
+            }
+        });
         paymentTabs.forEach(t => {
             t.classList.toggle('active', t.getAttribute('data-currency') === newCurrency);
         });
